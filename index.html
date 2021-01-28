@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Jogo da Velha</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="titulo">Jogo da Velha</h1>
+        <div id="tabuleiro">
+            <div>
+                <div id="0" class="bloco"></div>
+                <div id="1" class="bloco"></div>
+                <div id="2" class="bloco"></div>
+            </div>
+            <div>
+                <div id="3" class="bloco"></div>
+                <div id="4" class="bloco"></div>
+                <div id="5" class="bloco"></div>
+            </div>
+            <div>
+                <div id="6" class="bloco"></div>
+                <div id="7" class="bloco"></div>
+                <div id="8" class="bloco"></div>
+            </div>
+        </div>
+
+
+        <div id="alerta" class="card alerta">
+            <p>
+                
+            </p>
+        </div>
+
+        <div>
+            <button id="reset" class="btn btn-reset" onclick="resetGame()">Novo jogo</button>
+        </div>
+
+    </div>
+
+    <script src="./js/game.js"></script>
+    <script src="./js/interface.js"></script>
+</body>
+
+</html>
