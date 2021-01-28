@@ -1,6 +1,7 @@
 let tabuleiro = ['', '', '', '', '', '', '', '', ''];
 let jogador = 0;
 let gameOver = false;
+let jogadas = 0;
 
 let simbolo = ['o', 'x'];
 
@@ -18,19 +19,15 @@ function receberJogada(posicao) {
 
     if (tabuleiro[posicao] == '') {
         tabuleiro[posicao] = simbolo[jogador];
-
-        // gameOver = jogoFinalizado();
-
+        jogadas++;
+        gameOver = jogoFinalizado();
         if (!gameOver) {
             altenarJogador();
             alertaErro(false);
         }
-
     } else {
         alertaErro(true);
     }
-
-    gameOver = jogoFinalizado();
     return gameOver;
 }
 
@@ -60,11 +57,17 @@ function jogoFinalizado() {
             document.getElementById(pos2.toString()).style.background = 'tomato'
 
             let vencedor = (bloco0 == 'x') ? 'a estrela' : 'o planeta';
-            document.getElementById('alerta').children[0].innerHTML = `Fim de Jogo. O jogador d${vencedor} ganhou`;
+            msgVencedor(vencedor);
 
             alertaSucesso(true);
             return true;
         }
+    }
+
+    if (jogadas == tabuleiro.length) {
+        alertaErro(true);
+        msgVelha();
+        return true;
     }
 
     return false;
@@ -73,6 +76,7 @@ function jogoFinalizado() {
 function resetGame() {
     tabuleiro = ['', '', '', '', '', '', '', '', ''];
     jogador = 0;
+    jogadas = 0;
     gameOver = false;
     document.getElementById('alerta').removeAttribute('style');
 

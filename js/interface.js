@@ -59,3 +59,11 @@ function viewButton(boolean){
     let btn_reset = document.getElementById('reset');
     btn_reset.style.display = (boolean == true) ? 'inline-block' : 'none';
 }
+
+function msgVelha(){
+    document.getElementById('alerta').children[0].innerHTML = `Deu velha<p>Ninguém venceu essa partida</p>`;
+}
+
+function msgVencedor(vencedor){
+    document.getElementById('alerta').children[0].innerHTML = `Fim de Jogo.<p>O jogador d${vencedor} ganhou</p>`;
+}
